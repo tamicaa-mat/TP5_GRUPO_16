@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class Programa extends JFrame {
 
@@ -37,6 +40,20 @@ public class Programa extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setToolTipText("");
+		menuBar.setBounds(0, 0, 434, 22);
+		contentPane.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Peliculas");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Agregar");
+		mnNewMenu.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Listar");
+		mnNewMenu.add(mntmNewMenuItem_1);
 	}
-
 }
