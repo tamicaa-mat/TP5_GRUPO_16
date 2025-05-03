@@ -3,6 +3,12 @@ package principal;
 public class Categorias {
 
 	 private String nombre;
+	 
+	    public Categorias(String nombre) {
+	        this.nombre = nombre;
+	    }
+	 
+	 
 
 	public String getNombre() {
 		return nombre;
@@ -12,5 +18,8 @@ public class Categorias {
 		this.nombre = nombre;
 	}
 	
-	
+    @Override
+    public String toString() {
+        return "Categoría: " + nombre;
+    }
 }

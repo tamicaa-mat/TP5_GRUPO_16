@@ -1,10 +1,15 @@
 package principal;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -38,9 +43,10 @@ public class Programa extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setToolTipText("");
@@ -53,7 +59,28 @@ public class Programa extends JFrame {
 		JMenuItem mntmNewMenuItem = new JMenuItem("Agregar");
 		mnNewMenu.add(mntmNewMenuItem);
 		
+	    
+	     // aca agregamos un   actionlistener para que se abra la ventana que sirve para gregar una pelicula
+			mntmNewMenuItem.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	            	VentanaAgregarPelicula ventanaAgregar = new VentanaAgregarPelicula();
+	                ventanaAgregar.setVisible(true);
+	            }
+	        });
+		
+		
+		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Listar");
 		mnNewMenu.add(mntmNewMenuItem_1);
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaListarPelicula ventanaListar = new VentanaListarPelicula();
+				ventanaListar.setVisible(true);
+			}
+		});
+		
+		
+	
 	}
 }
