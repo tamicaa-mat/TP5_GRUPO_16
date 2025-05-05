@@ -4,6 +4,9 @@ public class Categorias {
 
 	 private String nombre;
 	 
+	public Categorias() 
+	{}
+	 
     public Categorias(String nombre) {
         this.nombre = nombre;
     }
@@ -18,6 +21,6 @@ public class Categorias {
 	
     @Override
     public String toString() {
-        return "Categoría: " + nombre;
+        return this.nombre;
     }
 }
