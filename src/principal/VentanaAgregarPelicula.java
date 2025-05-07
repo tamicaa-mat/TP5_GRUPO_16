@@ -2,6 +2,8 @@ package principal;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -12,6 +14,12 @@ public class VentanaAgregarPelicula extends JFrame {
     private JComboBox<Categorias> comboCategoria;
     private JLabel lblIdValor;
     private JPanel contentPane;
+    
+    private DefaultListModel<Peliculas> listModel;
+    public void setDefaultListModel(DefaultListModel<Peliculas> listModelR)
+	{
+		this.listModel = listModelR;
+	}
 
     public VentanaAgregarPelicula() {
     	
@@ -74,23 +82,28 @@ public class VentanaAgregarPelicula extends JFrame {
                         JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-        		 if(comboCategoria.getSelectedIndex() == 0) {
+
+        		if(comboCategoria.getSelectedIndex() == 0) {
                      JOptionPane.showMessageDialog(contentPane, 
                          "¡Tenes que seleccionar una categoria!", 
                          "Error", 
                          JOptionPane.ERROR_MESSAGE);
                      return;
                  }
+        		
         		 Categorias categoriaSeleccionada = (Categorias)comboCategoria.getSelectedItem();
+        		 Peliculas peliculaN = new Peliculas(titulo, categoriaSeleccionada);
+        		 listModel.addElement(peliculaN);
+        		 
                  JOptionPane.showMessageDialog(contentPane, 
                      "Película añadida:\nTítulo: " + titulo + "\nCategoría: " + categoriaSeleccionada.getNombre(), 
                      "Éxito", 
                      JOptionPane.INFORMATION_MESSAGE);
+                 textTitulo.setText("");
+                 comboCategoria.setSelectedIndex(0);
         	}
         });
         btnAceptar.setBounds(180, 50 + 35 * 3 + 10, 120, 30);
-        getContentPane().add(btnAceptar);
-        
+        getContentPane().add(btnAceptar);   
     }
-    
 }
