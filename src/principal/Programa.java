@@ -78,6 +78,7 @@ public class Programa extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				VentanaListarPelicula ventanaListar = new VentanaListarPelicula();
+				ventanaListar.setDefaultListModel(listModel);
 				ventanaListar.setVisible(true);
 			}
 		});
